@@ -1,0 +1,135 @@
+.movies-container {
+  max-width: 1200px;
+  margin: 10px auto;
+   padding: 0 16px;
+}
+
+.movie-card {
+  position: relative;
+  width: var(--card-size);
+  background-color: var(--bg-dark);
+  border-radius: var(--round);
+  overflow: hidden;
+  cursor: pointer;
+  flex: 0 0 auto;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.movie-card:hover {
+  transform: scale(1.06);
+   opacity: 1;
+}
+
+.movie-poster {
+  width: 100%;
+  height: var(--image-height);
+  object-fit: cover;
+  display: block;
+  object-fit: cover;
+}
+.movie-info {
+  padding: var(--space);
+}
+
+.movie-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-data {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--grey);
+}
+
+.movie-rating {
+  color: var(--yellow);
+  font-weight: 500;
+}
+
+.movies-row {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  padding: 4px 4px 12px 4px;
+  scroll-behavior: smooth;
+}
+
+.movies-row::-webkit-scrollbar {
+  display: none;
+}
+
+.movies-section {
+  margin-bottom: 40px;
+}
+
+.card-btn {
+  position: absolute;
+  bottom: 70px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.view-details-btn {
+  /* background-color: grey; */
+  border: none;
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+.movie-card:hover .card-btn {
+  opacity: 1;
+}
+
+.shimmer-card {
+  width: var(--card-size);
+  border-radius: var(--round);
+  overflow: hidden;
+  background-color: #1a1a1a;
+}
+
+.shimmer-img {
+  height: var(--image-height);
+  background: linear-gradient(90deg, #222, #333, #222);
+  animation: shimmer 1.5s infinite;
+}
+
+.shimmer-content {
+  padding: var(--space);
+}
+
+.shimmer-line {
+  height: 10px;
+  margin-bottom: 6px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #222, #333, #222);
+  animation: shimmer 1.5s infinite;
+}
+
+.shimmer-line.small {
+  width: 60%;
+  height: 8px;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: -200px 0;
+  }
+  to {
+    background-position: 200px 0;
+  }
+}
