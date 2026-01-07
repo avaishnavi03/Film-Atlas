@@ -16,7 +16,7 @@
 }
 
 .movie-card:hover {
-  transform: scale(1.06);
+  /* transform: scale(1.06); */
    opacity: 1;
 }
 
@@ -58,8 +58,8 @@
   gap: 16px;
   overflow-x: auto;
   overflow-y: hidden;
-
-  padding: 4px 4px 12px 4px;
+  padding: 0 16px 12px;
+  /* padding: 4px 4px 12px 4px; */
   scroll-behavior: smooth;
 }
 
@@ -73,26 +73,24 @@
 
 .card-btn {
   position: absolute;
-  bottom: 70px;
-  left: 0;
-  width: 100%;
+  inset: 0;               
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
+  align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.25s ease;
+  cursor: pointer;
 }
 
-.view-details-btn {
-  /* background-color: grey; */
-  border: none;
-  padding: 6px 10px;
-  font-size: 12px;
-  border-radius: 4px;
-  cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.7);
-}
 .movie-card:hover .card-btn {
   opacity: 1;
+}
+
+.play-icon {
+  font-size: 60px;
+  color: red;
+  padding: 10px;
 }
 
 .shimmer-card {

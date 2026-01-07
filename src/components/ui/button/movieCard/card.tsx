@@ -1,22 +1,25 @@
 import "./card.css";
 import { useNavigate } from "react-router-dom";
+import { FaYoutube } from "react-icons/fa";
+
 
 type MovieCardProps = {
-  id?: number;  
+  id?: number;
   posterPath?: string;
   title?: string;
   rating?: number;
-//  genres: string;
+  //  genres: string;
   year?: string;
-   isLoading?: boolean;
+  type?: "movie" | "tv";
+  isLoading?: boolean;
 };
 
-function MovieCard({ id, posterPath, title, rating, year,
-    isLoading = false,
-  }: MovieCardProps) {
-    const navigate = useNavigate();
+function MovieCard({ id, posterPath, title, rating, year, type,
+  isLoading = false,
+}: MovieCardProps) {
+  const navigate = useNavigate();
 
-    if (isLoading) {
+  if (isLoading) {
     return (
       <div className="shimmer-card">
         <div className="shimmer-img"></div>
@@ -35,20 +38,17 @@ function MovieCard({ id, posterPath, title, rating, year,
         alt={title}
         className="movie-poster"
       />
-         <div className="card-btn">
-          <button
-            className="view-details-btn"
-            onClick={() => navigate(`/movie/${id}`)}
-          >
-            View Details
-          </button>
-        </div>
+
+      <div className="card-btn"
+        onClick={() =>navigate(type === "tv" ? `/tv/${id}` : `/movie/${id}`) }>
+        <FaYoutube className="play-icon" />
+      </div>
 
       <div className="movie-info">
         <h6 className="movie-title">{title}</h6>
 
         <div className="movie-data">
-          <span className="movie-rating"> ⭐{rating.toFixed(1)}</span>
+          <span className="movie-rating"> ⭐{rating?.toFixed(1)}</span>
           <span className="movie-year">{year}</span>
         </div>
       </div>

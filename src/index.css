@@ -1,4 +1,6 @@
 :root {
+  --main-font: 'Outfit', sans-serif;
+
   --bg-dark: black;
   --white: white;
   --grey: #b3b3b3;
@@ -10,8 +12,8 @@
 }
 
 body {
-  font-family: Inter, "Segoe UI", Roboto, Ubuntu, sans-serif;
-  background-color:#ff1414;
+  font-family: var(--main-font);
+  /* background-color:#ff1414; */
 }
 .section-title {
   font-size: 22px;

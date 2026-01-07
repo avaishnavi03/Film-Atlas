@@ -21,20 +21,14 @@ function Header() {
         </li>
 
         <li className="nav-item">
-          <NavLink className="nav-link" to="/trending">
-            Trending
+          <NavLink className="nav-link" to="/movies">
+            Movies
           </NavLink>
         </li>
 
         <li className="nav-item">
-          <NavLink className="nav-link" to="/popular">
-            Popular
-          </NavLink>
-        </li>
-
-        <li className="nav-item">
-          <NavLink className="nav-link" to="/top-rated">
-            Top Rated
+          <NavLink className="nav-link" to="/tvserials">
+            Tv Serials
           </NavLink>
         </li>
       </ul>

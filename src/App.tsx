@@ -5,21 +5,21 @@ import MovieDetails from "./pages/movieDetails/movieDetails";
 import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/home";
-import Trending from "./pages/trending";
-import Popular from "./pages/popular";
-import TopRated from "./pages/toprated";
+// import TvDetails from "./pages/tvDetails/tvDetails";
+
+import Movies from "./pages/movies";
+
 
 function App() {
   return (
     <div className="app">
       <Header />
-
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/trending" element={<Trending />} />
-        <Route path="/popular" element={<Popular />} />
-        <Route path="/top-rated" element={<TopRated />} />
+        <Route path="/movies" element={<Movies />} />
+        {/* <Route path="/tv/:id" element={<TvDetails />} /> */}
         <Route path="/movie/:id" element={<MovieDetails />} />
+        <Route path="/tv/:id" element={<MovieDetails />} />
       </Routes>
     </div>
   );
