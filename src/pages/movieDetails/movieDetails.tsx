@@ -10,8 +10,9 @@ function MovieDetails() {
   const { data: movie, loading, error } = useFetchMovies({
     url:
       TMDB_ENDPOINTS.movieDetails(Number(id)) +
-      "?append_to_response=videos,credits",
+      "?append_to_response=videos,credits,images",
     method: "GET",
+
   });
 
   if (loading) {
@@ -32,6 +33,7 @@ function MovieDetails() {
             : "none",
         }}
       >
+
         <div className="backdrop-overlay">
           <div className="details-content">
             <img
@@ -44,10 +46,10 @@ function MovieDetails() {
               <p className="details-tagline">{movie.tagline}</p>
 
               <div className="details-meta">
-              <span>{movie.release_date?.split("-")[0]}</span>
-              <span>•</span>
-              <span>{movie.runtime} min</span>
-              <span>•</span>
+                <span>{movie.release_date?.split("-")[0]}</span>
+                <span>•</span>
+                <span>{movie.runtime} min</span>
+                <span>•</span>
                 <span>⭐ {movie.vote_average.toFixed(1)}</span>
               </div>
 
@@ -64,35 +66,52 @@ function MovieDetails() {
                 <button className="btn-secondary"> + Watchlist</button>
               </div>
             </div>
-           </div>
           </div>
-       </div>
+        </div>
+      </div>
 
       <div className="details-extra">
         <div className="details-layout">
-        <div className="details-main">
-          <h3 className="section-heading">Storyline</h3>
-       <p className="details-overview">{movie.overview}</p>
+          <div className="details-main">
+            <h3 className="section-heading">Storyline</h3>
+            <p className="details-overview">{movie.overview}</p>
 
-      <div className="top-cast">
-          <h3 className="section-heading">Top Cast</h3>
+            <div className="top-cast">
+              <h3 className="section-heading">Top Cast</h3>
               <div className="cast-list">
-               {movie.credits?.cast?.slice(0, 6).map((actor: any) => (
-               <div key={actor.id} className="cast-card">
-                  <img
-                    src={
+                {movie.credits?.cast?.slice(0, 6).map((actor: any) => (
+                  <div key={actor.id} className="cast-card">
+                    <img
+                      src={
                         actor.profile_path
                           ? `${IMAGE_BASE_URL}/w185${actor.profile_path}`
                           : "/no-avatar.png"
                       }
                       alt={actor.name}
                     />
-                 <p className="cast-name">{actor.name}</p>
-                <p className="cast-role">{actor.character}</p>
+                    <p className="cast-name">{actor.name}</p>
+                    <p className="cast-role">{actor.character}</p>
                   </div>
                 ))}
               </div>
             </div>
+            <div className="media-section">
+              <h3 className="section-heading">Photos & Videos</h3>
+
+              <div className="media-row">
+
+                {movie.images?.backdrops?.slice(0, 6).map((img: any, index: number) => (
+                  <img
+                    key={`photo-${index}`}
+                    src={`${IMAGE_BASE_URL}/w300${img.file_path}`}
+                    alt="Movie image"
+                    className="movie-img"
+                  />
+                ))}
+
+              </div>
+            </div>
+
           </div>
           <div className="movie-info-card">
             <h4>Movie Info</h4>
@@ -128,11 +147,13 @@ function MovieDetails() {
             <div className="info-row">
               <span>Original Language</span>
               <p>
-              {movie.spoken_languages
-              ?.map((lang: any) => lang.english_name).join(", ")}
+                {movie.spoken_languages
+                  ?.map((lang: any) => lang.english_name).join(", ")}
               </p>
             </div>
           </div>
+
+
 
         </div>
       </div>

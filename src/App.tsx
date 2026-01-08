@@ -5,7 +5,7 @@ import MovieDetails from "./pages/movieDetails/movieDetails";
 import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/home";
-// import TvDetails from "./pages/tvDetails/tvDetails";
+import TvSeries from "./pages/tvseries";
 
 import Movies from "./pages/movies";
 
@@ -17,9 +17,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<Movies />} />
-        {/* <Route path="/tv/:id" element={<TvDetails />} /> */}
+        <Route path="/tvseries" element={<TvSeries />} />
         <Route path="/movie/:id" element={<MovieDetails />} />
-        <Route path="/tv/:id" element={<MovieDetails />} />
+        {/* <Route path="/tv/:id" element={<MovieDetails />} /> */}
       </Routes>
     </div>
   );

@@ -27,7 +27,7 @@ function Header() {
         </li>
 
         <li className="nav-item">
-          <NavLink className="nav-link" to="/tvserials">
+          <NavLink className="nav-link" to="/tvseries">
             Tv Serials
           </NavLink>
         </li>
