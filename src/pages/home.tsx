@@ -47,6 +47,7 @@ const {
   url: TMDB_ENDPOINTS.topRatedTV,
   method: "GET",
 });
+
 //   const { 
 //     data: genreData,
 //     loading: genreLoading,

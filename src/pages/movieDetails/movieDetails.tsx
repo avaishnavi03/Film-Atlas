@@ -95,24 +95,8 @@ function MovieDetails() {
                 ))}
               </div>
             </div>
-            <div className="media-section">
-              <h3 className="section-heading">Photos & Videos</h3>
-
-              <div className="media-row">
-
-                {movie.images?.backdrops?.slice(0, 6).map((img: any, index: number) => (
-                  <img
-                    key={`photo-${index}`}
-                    src={`${IMAGE_BASE_URL}/w300${img.file_path}`}
-                    alt="Movie image"
-                    className="movie-img"
-                  />
-                ))}
-
-              </div>
-            </div>
-
           </div>
+
           <div className="movie-info-card">
             <h4>Movie Info</h4>
 
@@ -152,9 +136,33 @@ function MovieDetails() {
               </p>
             </div>
           </div>
+        </div>
+      </div>
 
+        <div className="media-section">
+        <h3 className="section-heading">Photos</h3>
+        <div className="media-row">
+          {movie.images?.backdrops?.slice(0, 10).map((img: any, index: number) => (
+            <img
+              key={index}
+              src={`${IMAGE_BASE_URL}/w300${img.file_path}`}
+              alt="Movie"
+              className="media-img"
+            />
+          ))}
+        </div>
 
-
+        <h3 className="section-heading">Videos</h3>
+        <div className="media-row">
+          {movie.videos?.results?.slice(0, 5).map((video: any) => (
+            <iframe
+              key={video.id}
+              className="media-video"
+              src={`https://www.youtube.com/embed/${video.key}`}
+              title={video.name}
+              allowFullScreen
+            />
+          ))}
         </div>
       </div>
     </div>
