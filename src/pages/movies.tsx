@@ -49,9 +49,6 @@ function Movies() {
   <option value="10749">Romance</option>
 </select>
 </div>
-
-
-
       <div className="movies-grid">
         {filteredMovies.map(movie => (
           <MovieCard

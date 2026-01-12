@@ -5,6 +5,13 @@ import useFetchMovies from "../hooks/useFetchMovies";
 function TvSeries() {
   const [page, setPage] = useState(1);
   const [tvSeries, setTvSeries] = useState<any[]>([]);
+  const [selectedGenre, setSelectedGenre] = useState("");
+
+ const filteredTvSeries = selectedGenre
+  ? tvSeries.filter((tv) =>
+      tv.genre_ids?.includes(Number(selectedGenre))
+    )
+  : tvSeries; 
 
   const { data, loading, error } = useFetchMovies({
     url: `/tv/popular?page=${page}`,
@@ -23,10 +30,25 @@ function TvSeries() {
 
   return (
     <div className="movies-container px-4">
+      <div className="movies-header">
       <h2 className="section-title">All TV Series</h2>
+        <select
+    className="genre-dropdown"
+    value={selectedGenre}
+    onChange={(e) => setSelectedGenre(e.target.value)}
+  >
+    <option value="">All Genres</option>
+    <option value="10759">Action & Adventure</option>
+    <option value="35">Comedy</option>
+    <option value="18">Drama</option>
+    <option value="10765">Sci-Fi & Fantasy</option>
+    <option value="80">Crime</option>
+    <option value="9648">Mystery</option>
+  </select>
+</div>
 
       <div className="movies-grid">
-        {tvSeries.map(tv => (
+        {filteredTvSeries.map(tv => (
           <MovieCard
             key={tv.id}
             id={tv.id}
