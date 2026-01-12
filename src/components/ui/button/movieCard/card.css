@@ -13,12 +13,20 @@
   cursor: pointer;
   flex: 0 0 auto;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transform-origin: center;
 }
 
 .movie-card:hover {
-  /* transform: scale(1.06); */
-   opacity: 1;
+  transform: scale(1.04);
 }
+
+.movie-card:active {
+  transform: scale(0.96);
+}
+
+
+
+
 
 .movie-poster {
   width: 100%;
@@ -58,8 +66,9 @@
   gap: 16px;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 0 16px 12px;
-  /* padding: 4px 4px 12px 4px; */
+  /* padding: 0 16px 12px; */
+  padding: 16px;
+  
   scroll-behavior: smooth;
 }
 
@@ -71,7 +80,7 @@
   margin-bottom: 40px;
 }
 
-.card-btn {
+/* .card-btn {
   position: absolute;
   inset: 0;               
   background: rgba(0, 0, 0, 0.6);
@@ -81,11 +90,9 @@
   opacity: 0;
   transition: opacity 0.25s ease;
   cursor: pointer;
-}
+} */
 
-.movie-card:hover .card-btn {
-  opacity: 1;
-}
+
 
 .play-icon {
   font-size: 60px;

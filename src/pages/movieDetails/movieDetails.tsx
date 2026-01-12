@@ -3,6 +3,10 @@ import useFetchMovies from "../../hooks/useFetchMovies";
 import { TMDB_ENDPOINTS } from "../../services/tmdbEndpoints";
 import "./movieDetails.css";
 import { IMAGE_BASE_URL } from "../../services/tmdbImages";
+import ShimmerDetails from "../../components/ui/button/movieCard/ShimmerDetails/shimmerdetails"
+import { useState } from "react";
+
+
 
 function MovieDetails() {
   const { id = "" } = useParams();
@@ -12,11 +16,24 @@ function MovieDetails() {
       TMDB_ENDPOINTS.movieDetails(Number(id)) +
       "?append_to_response=videos,credits,images",
     method: "GET",
-
   });
 
+  const [showTrailer, setShowTrailer] = useState(false);
+  const [trailerKey, setTrailerKey] = useState("");
+
+    function openTrailer() {
+    const trailer = movie.videos?.results?.[0];
+    if (trailer) {
+      setTrailerKey(trailer.key);
+      setShowTrailer(true);
+    } else {
+      alert("Trailer not found");
+    }
+  }
+
+
   if (loading) {
-    return <p className="details-loading">Loading...</p>;
+    return <ShimmerDetails />;
   }
 
   if (error) {
@@ -62,13 +79,26 @@ function MovieDetails() {
               </div>
 
               <div className="details-actions">
-                <button className="btn-primary">▶ Watch Trailer</button>
+                <button className="btn-primary"  onClick={openTrailer}>▶ Watch Trailer</button>
                 <button className="btn-secondary"> + Watchlist</button>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      {showTrailer && (
+        <div className="trailer-box">
+          <button className="close-btn" onClick={() => setShowTrailer(false)}>
+            X
+          </button>
+          <iframe
+            src={`https://www.youtube.com/embed/${trailerKey}`}
+            title="Trailer"
+            allowFullScreen
+          />
+        </div>
+      )}
 
       <div className="details-extra">
         <div className="details-layout">

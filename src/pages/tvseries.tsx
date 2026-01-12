@@ -31,10 +31,10 @@ function TvSeries() {
             key={tv.id}
             id={tv.id}
             posterPath={tv.poster_path}
-            title={tv.name}                 // 🔑 TV uses `name`
+            title={tv.name}            
             rating={tv.vote_average}
-            year={tv.first_air_date?.slice(0, 4)} // 🔑 TV uses `first_air_date`
-            type="tv"                       // 🔑 important for navigation
+            year={tv.first_air_date?.slice(0, 4)} 
+            type="tv"                       
           />
         ))}
 

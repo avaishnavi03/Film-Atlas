@@ -1,6 +1,6 @@
 import "./card.css";
 import { useNavigate } from "react-router-dom";
-import { FaYoutube } from "react-icons/fa";
+// import { FaYoutube } from "react-icons/fa";
 
 
 type MovieCardProps = {
@@ -32,17 +32,20 @@ function MovieCard({ id, posterPath, title, rating, year, type,
   }
 
   return (
-    <div className="movie-card">
+    <div className="movie-card"
+    onClick={() =>navigate(type === "tv" ? `/tv/${id}` : `/movie/${id}`) }
+    >
+    
       <img
         src={`https://image.tmdb.org/t/p/w300${posterPath}`}
         alt={title}
         className="movie-poster"
       />
-
+{/* 
       <div className="card-btn"
         onClick={() =>navigate(type === "tv" ? `/tv/${id}` : `/movie/${id}`) }>
         <FaYoutube className="play-icon" />
-      </div>
+      </div> */}
 
       <div className="movie-info">
         <h6 className="movie-title">{title}</h6>

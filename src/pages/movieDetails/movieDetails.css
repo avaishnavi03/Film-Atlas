@@ -202,7 +202,6 @@ background: rgba(0, 0, 0, 0.7);
   color: #fff;
 }
 
-
 .media-section{
 padding: 0 40px 60px;
 } 
@@ -224,7 +223,6 @@ padding: 0 40px 60px;
   object-fit: cover;
   border-radius: 10px;
   cursor: pointer;
-  
 }
 
 .media-video {
@@ -233,3 +231,40 @@ padding: 0 40px 60px;
   border-radius: 10px;
   border: none;
 }
+
+
+.trailer-box {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);   
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.trailer-box iframe {
+  width: 800px;        
+  height: 450px;       
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: #ff3b3b;
+  color: white;
+  border: none;
+  font-size: 18px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  background: #e60000;
+}
+
+
