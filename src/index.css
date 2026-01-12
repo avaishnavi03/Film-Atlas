@@ -28,6 +28,15 @@ body {
   gap: 20px;
 }
 
+
+.movies-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+
 .load-more-btn{
   /* display: block; */
   background-color: #e50914;
@@ -46,7 +55,15 @@ body {
   background-color: #f6121d;
 }
 
-
+.genre-dropdown {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  background: #111;
+  color: white;
+  /* margin: 10px; */
+  cursor: pointer;
+}
 
 
 
