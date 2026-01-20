@@ -89,11 +89,11 @@ function MovieDetails() {
                 <button className="btn-secondary" disabled={added} onClick={()=>{
                   if(!movie) return;
               
-                  dispatch(
-                    addToWatchlist({
+                  dispatch(addToWatchlist({
                       id: movie.id,
                       title:movie.title,
                       poster_path:movie.poster_path,
+                      type : "movie"
                     })
                   );
                   setAdded(true);
