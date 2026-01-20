@@ -3,8 +3,14 @@ import useFetchMovies from "../../hooks/useFetchMovies";
 import { TMDB_ENDPOINTS } from "../../services/tmdbEndpoints";
 import "../movieDetails/movieDetails.css";
 import { IMAGE_BASE_URL } from "../../services/tmdbImages";
+import { useDispatch } from "react-redux";
+import { addToWatchlist } from "../../store/watchlistSlice";
+import type { AppDispatch } from "../../store/store";
+import { useState } from "react";
 
 function TvDetails() {
+   const dispatch = useDispatch<AppDispatch>();
+  const [added, setAdded] = useState(false);
   const { id = "" } = useParams();
 
   const { data: tv, loading, error } = useFetchMovies({
@@ -19,7 +25,6 @@ function TvDetails() {
 
   return (
     <div className="details-page">
-      {/* BACKDROP */}
       <div
         className="details-backdrop"
         style={{
@@ -58,7 +63,23 @@ function TvDetails() {
 
               <div className="details-actions">
                 <button className="btn-primary">▶ Watch Trailer</button>
-                <button className="btn-secondary"> + Watchlist</button>
+                <button className="btn-secondary"
+                disabled={added}
+  onClick={() => {
+    if (!tv) return;
+
+    dispatch(
+      addToWatchlist({
+        id: tv.id,
+        title: tv.name,
+        poster_path: tv.poster_path,
+        type: "tv", 
+      })
+    );
+    setAdded(true);
+  }}>
+    {added ? "Added" : "+ Watchlist"}
+  </button>
               </div>
             </div>
           </div>

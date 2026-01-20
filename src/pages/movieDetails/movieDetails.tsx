@@ -6,9 +6,15 @@ import { IMAGE_BASE_URL } from "../../services/tmdbImages";
 import ShimmerDetails from "../../components/ui/button/movieCard/ShimmerDetails/shimmerdetails"
 import { useState } from "react";
 
+import { useDispatch } from "react-redux";
+import { addToWatchlist } from "../../store/watchlistSlice";
+import type { AppDispatch } from "../../store/store";
+
 
 
 function MovieDetails() {
+  const [added, setAdded] = useState(false);
+  const dispatch = useDispatch<AppDispatch>();
   const { id = "" } = useParams();
 
   const { data: movie, loading, error } = useFetchMovies({
@@ -80,7 +86,21 @@ function MovieDetails() {
 
               <div className="details-actions">
                 <button className="btn-primary"  onClick={openTrailer}>▶ Watch Trailer</button>
-                <button className="btn-secondary"> + Watchlist</button>
+                <button className="btn-secondary" disabled={added} onClick={()=>{
+                  if(!movie) return;
+              
+                  dispatch(
+                    addToWatchlist({
+                      id: movie.id,
+                      title:movie.title,
+                      poster_path:movie.poster_path,
+                    })
+                  );
+                  setAdded(true);
+                }}
+                >
+                   {added ? "Added" : "+ Watchlist"}
+                   </button>
               </div>
             </div>
           </div>

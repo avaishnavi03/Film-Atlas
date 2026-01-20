@@ -1,0 +1,48 @@
+.watchlist-container {
+  padding: 20px;
+  background-color: #111;
+}
+
+.watchlist-title {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.empty-text {
+  color: white;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.watchlist-card {
+  display: flex;
+  align-items: center;
+  background-color: #222;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+}
+
+.watchlist-image {
+  width: 60px;
+  border-radius: 4px;
+}
+
+.watchlist-name {
+  color: white;
+  flex: 1;
+  margin-left: 10px;
+}
+
+.remove-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  background-color: darkred;
+}

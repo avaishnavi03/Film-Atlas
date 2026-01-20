@@ -1,10 +1,16 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FaSearch} from "react-icons/fa";
+// import {FaUserCircle} from "react-icons/fa";
+import { FaNotesMedical } from "react-icons/fa6";
+import { useSelector } from "react-redux";
+import type { RootState } from "../../store/store";
+
 
 function Header() {
+  const navigate = useNavigate();
+const watchlist = useSelector((state: RootState) => state.watchlist.items);
   return (
     <nav className="navbar navbar-dark bg-dark px-4">
-
       <div className="navbar-logo">
         <img
           src="/FilmAtlas.png"
@@ -28,12 +34,37 @@ function Header() {
 
         <li className="nav-item">
           <NavLink className="nav-link" to="/tvseries">
-            Tv Serials
+            Tv Series
           </NavLink>
         </li>
       </ul>
 
-      <div className="d-flex align-items-center gap-3">
+      <div className="d-flex align-items-center gap-4">
+        <div style={{ position: "relative", cursor: "pointer" }}>
+
+        <FaNotesMedical color="white" size={24} 
+        onClick={()=> navigate("/watchlist")}
+        />
+        {watchlist.length > 0 && (
+          <span style={{
+            position:"absolute",
+            background:"red",
+            padding:"2px 6px",
+             top: "-6px",
+             right: "-10px",
+             color: "white",
+              borderRadius: "50px",
+              fontSize: "12px",
+          }}
+        >
+          {watchlist.length}
+          </span>
+          )}
+          </div>
+
+
+
+
         <div className="input-group input-group-sm">
           <input
             type="text"
@@ -46,6 +77,7 @@ function Header() {
         </div>
 
         {/* <FaUserCircle color="white" size={22} /> */}
+        
       </div>
 
     </nav>
