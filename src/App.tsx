@@ -5,7 +5,7 @@ import MovieDetails from "./pages/movieDetails/movieDetails";
 import TvDetails from "./pages/tvDetails/tvDetails";
 // import Watchlist from "../src/pages/watchlist/watchlist"
 import Watchlist from "./pages/watchlist/watchlist";
-
+import SearchResults from "./pages/searchResults";
 
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
@@ -23,6 +23,7 @@ function App() {
         <Route path="/movie/:id" element={<MovieDetails />} />
         <Route path="/tv/:id" element={<TvDetails />} />
         <Route path="/watchlist" element={<Watchlist />} />
+        <Route path="/search" element={<SearchResults />} />
       </Routes>
     </div>
   );

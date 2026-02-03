@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import MovieCard from "../components/ui/button/movieCard/card";
 import useFetchMovies from "../hooks/useFetchMovies";
 
-
-
 function Movies() {
   const [page, setPage] = useState(1);
   const [movies, setMovies] = useState<any[]>([]);

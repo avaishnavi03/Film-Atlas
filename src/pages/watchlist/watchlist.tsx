@@ -28,8 +28,7 @@ function Watchlist() {
 
           <button
             className="remove-btn"
-            onClick={() => dispatch(removeFromWatchlist(movie.id))}
-          >
+            onClick={() => dispatch(removeFromWatchlist(movie.id))}>
             Remove
           </button>
         </div>

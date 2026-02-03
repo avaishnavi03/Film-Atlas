@@ -1,0 +1,19 @@
+.search-page{
+  padding: 20px;
+}
+
+.search-title{
+  margin-bottom: 20px;
+  color: black;
+}
+
+.no-results{
+  color: gray;
+}
+
+.search-flex{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-evenly;
+}

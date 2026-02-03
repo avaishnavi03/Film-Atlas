@@ -31,11 +31,12 @@ function MovieCard({ id, posterPath, title, rating, year, type,
     );
   }
 
+  
   return (
     <div className="movie-card"
     onClick={() =>navigate(type === "tv" ? `/tv/${id}` : `/movie/${id}`) }
     >
-    
+
       <img
         src={`https://image.tmdb.org/t/p/w300${posterPath}`}
         alt={title}
@@ -46,7 +47,7 @@ function MovieCard({ id, posterPath, title, rating, year, type,
         onClick={() =>navigate(type === "tv" ? `/tv/${id}` : `/movie/${id}`) }>
         <FaYoutube className="play-icon" />
       </div> */}
-
+      
       <div className="movie-info">
         <h6 className="movie-title">{title}</h6>
 

@@ -6,6 +6,7 @@ const userSlice = createSlice({
     isLoggedIn: false,
     userName: "",
   },
+
   reducers: {
     login(state, action) {
       state.isLoggedIn = true;
@@ -16,6 +17,7 @@ const userSlice = createSlice({
       state.userName = "";
     },
   },
+  
 });
 
 export const { login, logout } = userSlice.actions;

@@ -11,6 +11,5 @@ export default defineConfig({
 
 
 
-// plugins usedf or adding extra features, react support and env handling
+// plugins used for adding extra features, react support and env handling
 // vite.config: it is used for how to build run and optimize
-

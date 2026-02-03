@@ -37,7 +37,6 @@ function MovieDetails() {
     }
   }
 
-
   if (loading) {
     return <ShimmerDetails />;
   }

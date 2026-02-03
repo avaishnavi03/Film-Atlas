@@ -4,11 +4,23 @@ import { FaSearch} from "react-icons/fa";
 import { FaNotesMedical } from "react-icons/fa6";
 import { useSelector } from "react-redux";
 import type { RootState } from "../../store/store";
-
+import { useState } from "react";
+import useDebounce from "../../hooks/useDebounce";
+import SearchSuggestions from "./searchSuggestions";
 
 function Header() {
   const navigate = useNavigate();
 const watchlist = useSelector((state: RootState) => state.watchlist.items);
+
+
+  const [query, setQuery] = useState("");
+  const debouncedQuery = useDebounce(query, 500);
+
+  function goSearch(){
+    if(!query.trim()) return;
+    navigate(`/search?q=${query}`);
+  }
+
   return (
     <nav className="navbar navbar-dark bg-dark px-4">
       <div className="navbar-logo">
@@ -61,22 +73,27 @@ const watchlist = useSelector((state: RootState) => state.watchlist.items);
           </span>
           )}
           </div>
-
-
-
-
+          <div style={{position:"relative", width:"250px"}}>
         <div className="input-group input-group-sm">
           <input
             type="text"
             className="form-control"
             placeholder="Search movies..."
+            value={query}
+            onChange={(e)=>setQuery(e.target.value)}
+            onKeyDown={(e)=>e.key==="Enter" && goSearch()}
           />
-          <span className="input-group-text">
+          <span className="input-group-text" onClick={goSearch}>
             <FaSearch />
           </span>
         </div>
 
         {/* <FaUserCircle color="white" size={22} /> */}
+        <SearchSuggestions
+            query={debouncedQuery}
+            clear={()=>setQuery("")}
+          />
+        </div>
         
       </div>
 

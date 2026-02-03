@@ -60,6 +60,7 @@ function TvSeries() {
           />
         ))}
 
+
         {loading &&
           [...Array(10)].map((_, i) => (
             <MovieCard key={i} isLoading />

@@ -33,6 +33,7 @@ function TvDetails() {
             : "none",
         }}
       >
+        
         <div className="backdrop-overlay">
           <div className="details-content">
             <img
@@ -73,7 +74,7 @@ function TvDetails() {
         id: tv.id,
         title: tv.name,
         poster_path: tv.poster_path,
-        type: "tv", 
+        type: "tv"
       })
     );
     setAdded(true);
