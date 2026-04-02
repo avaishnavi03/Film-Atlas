@@ -1,3 +1,4 @@
+import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FaSearch} from "react-icons/fa";
 // import {FaUserCircle} from "react-icons/fa";
@@ -11,7 +12,6 @@ import SearchSuggestions from "./searchSuggestions";
 function Header() {
   const navigate = useNavigate();
 const watchlist = useSelector((state: RootState) => state.watchlist.items);
-
 
   const [query, setQuery] = useState("");
   const debouncedQuery = useDebounce(query, 500);
@@ -57,6 +57,7 @@ const watchlist = useSelector((state: RootState) => state.watchlist.items);
         <FaNotesMedical color="white" size={24} 
         onClick={()=> navigate("/watchlist")}
         />
+
         {watchlist.length > 0 && (
           <span style={{
             position:"absolute",
@@ -69,6 +70,7 @@ const watchlist = useSelector((state: RootState) => state.watchlist.items);
               fontSize: "12px",
           }}
         >
+
           {watchlist.length}
           </span>
           )}

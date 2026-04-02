@@ -10,13 +10,10 @@ import { useDispatch } from "react-redux";
 import { addToWatchlist } from "../../store/watchlistSlice";
 import type { AppDispatch } from "../../store/store";
 
-
-
 function MovieDetails() {
   const [added, setAdded] = useState(false);
   const dispatch = useDispatch<AppDispatch>();
   const { id = "" } = useParams();
-
   const { data: movie, loading, error } = useFetchMovies({
     url:
       TMDB_ENDPOINTS.movieDetails(Number(id)) +

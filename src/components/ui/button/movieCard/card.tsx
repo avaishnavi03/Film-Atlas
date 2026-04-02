@@ -2,7 +2,6 @@ import "./card.css";
 import { useNavigate } from "react-router-dom";
 // import { FaYoutube } from "react-icons/fa";
 
-
 type MovieCardProps = {
   id?: number;
   posterPath?: string;
@@ -31,7 +30,6 @@ function MovieCard({ id, posterPath, title, rating, year, type,
     );
   }
 
-  
   return (
     <div className="movie-card"
     onClick={() =>navigate(type === "tv" ? `/tv/${id}` : `/movie/${id}`) }

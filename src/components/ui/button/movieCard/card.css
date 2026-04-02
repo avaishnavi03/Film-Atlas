@@ -24,10 +24,6 @@
   transform: scale(0.96);
 }
 
-
-
-
-
 .movie-poster {
   width: 100%;
   height: var(--image-height);
@@ -91,8 +87,6 @@
   transition: opacity 0.25s ease;
   cursor: pointer;
 } */
-
-
 
 .play-icon {
   font-size: 60px;

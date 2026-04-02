@@ -9,7 +9,7 @@ import type { AppDispatch } from "../../store/store";
 import { useState } from "react";
 
 function TvDetails() {
-   const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useDispatch<AppDispatch>();
   const [added, setAdded] = useState(false);
   const { id = "" } = useParams();
 
@@ -33,7 +33,7 @@ function TvDetails() {
             : "none",
         }}
       >
-        
+
         <div className="backdrop-overlay">
           <div className="details-content">
             <img
@@ -41,7 +41,7 @@ function TvDetails() {
               alt={tv.name}
               className="details-poster"
             />
-
+            
             <div className="details-info">
               <h1 className="details-title">{tv.name}</h1>
               <p className="details-tagline">{tv.tagline}</p>
@@ -65,22 +65,22 @@ function TvDetails() {
               <div className="details-actions">
                 <button className="btn-primary">▶ Watch Trailer</button>
                 <button className="btn-secondary"
-                disabled={added}
-  onClick={() => {
-    if (!tv) return;
+                  disabled={added}
+                  onClick={() => {
+                    if (!tv) return;
 
-    dispatch(
-      addToWatchlist({
-        id: tv.id,
-        title: tv.name,
-        poster_path: tv.poster_path,
-        type: "tv"
-      })
-    );
-    setAdded(true);
-  }}>
-    {added ? "Added" : "+ Watchlist"}
-  </button>
+                    dispatch(
+                      addToWatchlist({
+                        id: tv.id,
+                        title: tv.name,
+                        poster_path: tv.poster_path,
+                        type: "tv"
+                      })
+                    );
+                    setAdded(true);
+                  }}>
+                  {added ? "Added" : "+ Watchlist"}
+                </button>
               </div>
             </div>
           </div>

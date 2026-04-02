@@ -1,3 +1,7 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
 :root {
   --main-font: 'Outfit', sans-serif;
   --bg-dark: black;
@@ -28,14 +32,12 @@ body {
   gap: 20px;
 }
 
-
 .movies-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
 }
-
 
 .load-more-btn{
   /* display: block; */
@@ -83,4 +85,49 @@ body {
 
 .suggestion-item:hover{
   background:#1f2a40;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.movies-row {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 50px;
+}
+
+.movies-row::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: black;
+  color: white;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 18px;
+}
+
+.carousel-btn.left {
+  left: 0;
+}
+
+.carousel-btn.right {
+  right: 0;
+}
+
+.carousel-btn:hover {
+  background: #222;
 }

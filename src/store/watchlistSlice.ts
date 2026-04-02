@@ -32,7 +32,6 @@ const watchlistSlice = createSlice({
       }
     },
 
-
     removeFromWatchlist: (state, action: PayloadAction<number>) => {
       state.items = state.items.filter(
         (movie) => movie.id !== action.payload

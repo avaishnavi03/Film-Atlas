@@ -33,7 +33,6 @@ function Movies() {
     <div className="movies-container px-4">
       <div className="movies-header">
       <h2 className="section-title">All Movies</h2>
-
       <select
   className="genre-dropdown"
   value={selectedGenre}
