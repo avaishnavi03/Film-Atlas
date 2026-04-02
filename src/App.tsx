@@ -9,6 +9,8 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
 import Movies from "./pages/movies";
 import TvSeries from "./pages/tvseries";
+import Login from "./components/auth/Login.jsx";
+
 
 function App() {
   return (
@@ -23,7 +25,9 @@ function App() {
         <Route path="/tv/:id" element={<TvDetails />} />
         <Route path="/watchlist" element={<Watchlist />} />
         <Route path="/search" element={<SearchResults />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
+      {/* <Footer/> */}
     </div>
   );
 }

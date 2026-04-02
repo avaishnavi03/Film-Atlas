@@ -14,13 +14,11 @@ function SearchSuggestions({ query, clear }: any) {
                 setResults([]);
             }
         }
-
         document.addEventListener("mousedown", handleClickOutside);
-
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-
+        
     }, []);
 
     useEffect(() => {
